@@ -1,0 +1,23 @@
+.unselectable{
+    list-style-type: none;
+    padding: 0px;
+    background: #3f51b5;
+}
+.unselectable li{
+    width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 5px;
+    color: white;
+    // font-weight: bold;
+    cursor: pointer;
+    border-bottom: 1px solid white;
+    border-radius: 5px;
+}
+.unselectable li:hover{
+    background: #418cc5;
+}
+.activeRoute{
+    background-color: #418cc5;
+}

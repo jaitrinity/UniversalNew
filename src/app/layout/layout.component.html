@@ -1,0 +1,65 @@
+<div>
+  <mat-toolbar color="primary">
+    <button (click)="drawer.toggle()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon *ngIf="!drawer.opened">chevron_right</mat-icon>
+      <mat-icon *ngIf="drawer.opened">chevron_left</mat-icon>
+    </button>
+    <span>Trinity</span>
+    <span class="example-spacer"></span>
+    <button [matMenuTriggerFor]="menu" mat-icon-button class="example-icon account_circle" aria-label="Example icon-button with heart icon">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>Employee Id : {{loginEmpId}}</button>
+      <button mat-menu-item>Employee Name : {{loginEmpName}}</button>
+    </mat-menu>
+    <button (click)="logout()"  mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+      <mat-icon>exit_to_app</mat-icon>
+    </button>
+  </mat-toolbar>
+</div>
+
+<mat-drawer-container class="example-container">
+  <!-- <mat-drawer #drawer mode="side" style="width: 20%;" opened> -->
+  <mat-drawer #drawer mode="side" style="width: 20%;">
+    <app-menu></app-menu>
+  </mat-drawer>
+  <mat-drawer-content>
+    <mat-progress-bar *ngIf="mainLoader" mode="indeterminate"></mat-progress-bar>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>
+<footer>
+  Trinity Mobile App Lab Pvt Ltd..
+</footer>
+
+
+
+<!-- <mat-drawer-container class="example-container" [hasBackdrop]="hasBackdrop.value">
+    <mat-drawer #drawer [mode]="mode.value">
+      <app-menu></app-menu>
+        <button (click)="logout()">Logout</button>
+        {{loginEmpName}} {{loginEmpRoleId}}
+    </mat-drawer>
+    <mat-drawer-content>
+      <mat-form-field>
+        <mat-label>Sidenav mode</mat-label>
+        <mat-select #mode value="side">
+          <mat-option value="side">Side</mat-option>
+          <mat-option value="over">Over</mat-option>
+          <mat-option value="push">Push</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Has backdrop</mat-label>
+        <mat-select #hasBackdrop>
+          <mat-option>Unset</mat-option>
+          <mat-option [value]="true">True</mat-option>
+          <mat-option [value]="false">False</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button mat-raised-button (click)="drawer.toggle()">Toggle drawer</button>
+
+      <router-outlet></router-outlet>
+    </mat-drawer-content>
+</mat-drawer-container> -->

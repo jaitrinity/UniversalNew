@@ -1,0 +1,25 @@
+
+<div class="row" mat-dialog-actions>
+    <div class="col-md-2">
+        {{data.actId}}
+    </div>
+    <div class="col-md-10" style="text-align: right;">
+        <button mat-raised-button color="primary" (click)="onNoClick()">Close</button>
+    </div>
+    
+    <!-- <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button> -->
+</div>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th *ngFor="let detCol of data.detColumnList">{{detCol}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let cm of data.dataList">
+            <td *ngFor="let detCol of data.detColumnList">{{cm[detCol]}}</td>
+        </tr>
+    </tbody>
+    
+</table>
+

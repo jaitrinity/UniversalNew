@@ -1,0 +1,93 @@
+<!-- <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
+    <mat-tab label="Pincode Sampling">Content 1</mat-tab>
+    <mat-tab label="Divison Sampling">Content 2</mat-tab>
+    <mat-tab label="State Sampling">Content 3</mat-tab>
+    <mat-tab label="Locality Sampling">Content 3</mat-tab>
+    <mat-tab label="Country Sampling">Content 3</mat-tab>
+    <mat-tab label="Checkpoint Sampling">Content 3</mat-tab>
+</mat-tab-group> -->
+<div class="row _graphDiv">
+    <div class="col-md-6">
+        <div class="row mr-0">
+            <div class="col-md-12 _menuName">Form fill count</div>
+            <div class="col-md-12">
+                <div id="barChart"></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="row mr-0">
+            <div class="col-md-12 _menuName">Table data</div>
+            <div class="col-md-12 pd-0" style="max-height: 350px; overflow: auto;">
+                <table class="table table-bordered fixedHeader">
+                    <thead>
+                        <tr>
+                            <th colspan="2">
+                                <input type="text" class="form-control" [(ngModel)]="searchText" placeholder="Search text..."/>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>Form</th>
+                            <th>Count</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let ca of countArr | filter:searchText">
+                            <td>{{ca.menuName}}</td>
+                            <td>
+                                <div [ngStyle]="{'color' : ca.color}" [countUp]="ca.doneCount" [duration]="duration"></div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+</div>
+<div class="row _graphDiv" *ngFor="let ga of graphArr">
+    <div class="col-md-12 _menuName">{{ga.menuName}}</div>
+    <div style="display: flex; overflow: auto;">
+        <div *ngIf="ga.isPincodeGraph" class="_samplingGraphDiv">
+            <div class="_samplingName">Pincode Sampling</div>
+            <div id="{{ga.pincodeSampling.divId}}"></div>
+        </div>
+        <div *ngIf="ga.isDivisonGraph" class="_samplingGraphDiv">
+            <div class="_samplingName">Divison Sampling</div>
+            <div id="{{ga.divisonSampling.divId}}"></div>
+        </div>
+        <div *ngIf="ga.isStateGraph" class="_samplingGraphDiv">
+            <div class="_samplingName">State Sampling</div>
+            <div id="{{ga.stateSampling.divId}}"></div>
+        </div>
+        <div *ngIf="ga.isLocalityGraph" class="_samplingGraphDiv">
+            <div class="_samplingName">Locality Sampling</div>
+            <div id="{{ga.localitySampling.divId}}"></div>
+        </div>
+        <div *ngIf="ga.isCountryGraph" class="_samplingGraphDiv">
+            <div class="_samplingName">Country Sampling</div>
+            <div id="{{ga.countrySampling.divId}}"></div>
+        </div>
+        <div *ngIf="ga.isCheckpointGraph" class="_samplingGraphDiv">
+            <div class="_samplingName">Checkpoint Sampling</div>
+            <div id="{{ga.checkpointSampling.divId}}"></div>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="row"> -->
+    <!-- <div class="col-md-4">
+        <div id="chartBar">
+        </div>
+    </div> -->
+    <!-- <div class="col-md-4">
+        <div id="chartPie">
+        </div>
+    </div> -->
+    <!-- <div class="col-md-4">
+        <div id="chartLine">
+        </div>
+    </div> -->
+<!-- </div> -->
+
+

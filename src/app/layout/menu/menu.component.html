@@ -1,0 +1,10 @@
+<ul class="unselectable">
+    <li matTooltip="Dashboard" matTooltipPosition="after" *ngIf="loginEmpRoleId == '4'" routerLink = "./dashboard" [routerLinkActive] = '["activeRoute"]'>
+        <img src="./assets/img/graph.jpg" alt="Leaves Icon" style="width : 20px;border-radius: 10px"> 
+        Dashboard
+    </li>
+    <li [matTooltip]="menu.menuName" matTooltipPosition="after" [routerLink]="[menu.routerLink]" [routerLinkActive] = '["activeRoute"]' *ngFor="let menu of menuList"> 
+        <img [src]="[menu.icon]" alt="Leaves Icon" style="width : 20px;border-radius: 10px"> 
+        {{menu.menuName}}
+    </li>
+</ul>
